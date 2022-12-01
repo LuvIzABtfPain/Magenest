@@ -1,0 +1,38 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magenest_director">
+        <column xsi:type="int" name="director_id" identity="true" unsigned="true" nullable="false" comment="Director Id"/>
+        <column xsi:type="text" name="name" nullable="false" comment="Name"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="director_id"/>
+        </constraint>
+    </table>
+    <table name="magenest_movie">
+        <column xsi:type="int" name="movie_id" identity="true" unsigned="true" nullable="false" comment="Movie Id"/>
+        <column xsi:type="text" name="name" nullable="false" comment="Name"/>
+        <column xsi:type="text" name="description" nullable="false" comment="Description"/>
+        <column xsi:type="int" name="director_id" unsigned="true" comment="Director ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="movie_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="director_of_movie" table="magenest_movie" column="director_id" referenceTable="magenest_director" referenceColumn="director_id" onDelete="CASCADE"/>
+    </table>
+    <table name="magenest_actor">
+        <column xsi:type="int" name="actor_id" identity="true" unsigned="true" nullable="false" comment="Actor Id"/>
+        <column xsi:type="text" name="name" nullable="false" comment="Name"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="actor_id"/>
+        </constraint>
+    </table>
+    <table name="magenest_movie_actor">
+        <column xsi:type="int" name="id" identity="true" unsigned="true" nullable="false" comment="Id"/>
+        <column xsi:type="int" name="movie_id" unsigned="true" nullable="false" comment="Movie ID"/>
+        <column xsi:type="int" name="actor_id" unsigned="true" nullable="false" comment="Actor ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="actor_of_movie" table="magenest_movie_actor" column="actor_id" referenceTable="magenest_actor" referenceColumn="actor_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="movie_of_actor" table="magenest_movie_actor" column="movie_id" referenceTable="magenest_movie" referenceColumn="movie_id" onDelete="CASCADE"/>
+
+    </table>
+</schema>
