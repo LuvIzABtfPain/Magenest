@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\Cms\Block\Adminhtml\Page\Edit;
+namespace Magenest\Movie\Block\Adminhtml\Movie\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
@@ -12,9 +12,6 @@ use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
  */
 class BackButton extends GenericButton implements ButtonProviderInterface
 {
-    /**
-     * @return array
-     */
     public function getButtonData()
     {
         return [
@@ -26,12 +23,10 @@ class BackButton extends GenericButton implements ButtonProviderInterface
     }
 
     /**
-     * Get URL for back (reset) button
-     *
-     * @return string
+     * Get URL for Button
      */
     public function getBackUrl()
     {
-        return $this->getUrl('*/*/');
+        return $this->getUrl('grid/grid/movie');
     }
 }

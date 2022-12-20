@@ -1,11 +1,18 @@
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magenest_Movie:etc/config.xsd">
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <Magenest>
-            <movie>
-                <general>
-                <text_field>I'm a text field</text_field>
-                </general>
-            </movie>
-        </Magenest>
+        <movie>
+            <general>
+                <text_field>a text field</text_field>
+                <select_field>1</select_field>
+                <enable>1</enable>
+            </general>
+        </movie>
     </default>
 </config>

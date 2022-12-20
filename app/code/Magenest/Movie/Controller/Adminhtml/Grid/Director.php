@@ -1,5 +1,5 @@
 <?php
-namespace Magenest\Movie\Controller\Adminhtml\Magenest;
+namespace Magenest\Movie\Controller\Adminhtml\Grid;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 class Director extends \Magento\Backend\App\Action
@@ -25,8 +25,8 @@ class Director extends \Magento\Backend\App\Action
     {
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Magenest_Movie::grid');
-        $resultPage->addBreadcrumb(__('Magenest'), __('Director'));
+        $resultPage->setActiveMenu('Magenest_Movie::system');
+        $resultPage->addBreadcrumb(__('Grid'), __('Director'));
         $resultPage->getConfig()->getTitle()->prepend(__('Director'));
         return $resultPage;
     }

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magenest" translate="label" sortOrder="200">
+            <label>Magenest</label>
+        </tab>
+        <section id="movie" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Movie</label>
+            <tab>magenest</tab>
+            <resource>Magenest_Movie::Movie_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Movie</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label><![CDATA[Yes_no_field_<strong class="colorRed">abcd</strong>]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>*Notice the color</comment>
+                </field>
+                <field id="text_field" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Text Field</label>
+                </field>
+                <field id="select_field" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Custom select field</label>
+                    <source_model>\Magenest\Movie\Model\Config\Source\CustomSelect</source_model>
+                </field>
+                <field id="movie_row" translate="label" type="note" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Movie Row</label>
+                    <frontend_model>Magenest\Movie\Block\Adminhtml\Store\Config\CountMovie</frontend_model>
+                </field>
+                <field id="actor_row" translate="label" type="note" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Actor Row</label>
+                    <frontend_model>Magenest\Movie\Block\Adminhtml\Store\Config\CountActor</frontend_model>
+                    <depends> <!-- This field will only be visible if the field with the id A_UNIQUE_FIELD_ID is set to value 1 -->
+                        <field id="select_field">1</field>
+                    </depends>
+                </field>
+                <field id="button" translate="label" type="button" sortOrder="6" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Button</label>
+                    <frontend_model>Magenest\Movie\Block\Adminhtml\Store\Config\ButtonReload</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

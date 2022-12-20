@@ -4,6 +4,5 @@
         <title>Helloworld Landingspage</title>
     </head>
     <body>
-        <remove name="wishlist_sidebar" />
     </body>
 </page>

@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\Cms\Controller\Adminhtml\Page;
+namespace Magenest\Movie\Controller\Adminhtml\Movie;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Backend\App\Action;
@@ -18,7 +18,7 @@ class Edit extends \Magento\Backend\App\Action implements HttpGetActionInterface
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Magento_Cms::save';
+    const ADMIN_RESOURCE = 'Magenest_Movie::save';
 
     /**
      * Core registry
@@ -57,9 +57,6 @@ class Edit extends \Magento\Backend\App\Action implements HttpGetActionInterface
         // load layout, set active menu and breadcrumbs
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Magento_Cms::cms_page')
-            ->addBreadcrumb(__('CMS'), __('CMS'))
-            ->addBreadcrumb(__('Manage Pages'), __('Manage Pages'));
         return $resultPage;
     }
 
@@ -71,9 +68,8 @@ class Edit extends \Magento\Backend\App\Action implements HttpGetActionInterface
      */
     public function execute()
     {
-        // 1. Get ID and create model
-        $id = $this->getRequest()->getParam('page_id');
-        $model = $this->_objectManager->create(\Magento\Cms\Model\Page::class);
+        $id = $this->getRequest()->getParam('movie_id');
+        $model = $this->_objectManager->create(\Magenest\Movie\Model\Movie::class);
 
         // 2. Initial checking
         if ($id) {
@@ -82,22 +78,22 @@ class Edit extends \Magento\Backend\App\Action implements HttpGetActionInterface
                 $this->messageManager->addErrorMessage(__('This page no longer exists.'));
                 /** \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
                 $resultRedirect = $this->resultRedirectFactory->create();
-                return $resultRedirect->setPath('*/*/');
+                return $resultRedirect->setPath('*/grid/movie');
             }
         }
 
-        $this->_coreRegistry->register('cms_page', $model);
+        $this->_coreRegistry->register('magenest_movie', $model);
 
         // 5. Build edit form
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->_initAction();
         $resultPage->addBreadcrumb(
-            $id ? __('Edit Page') : __('New Page'),
-            $id ? __('Edit Page') : __('New Page')
+            $id ? __('Edit Movie') : __('New Movie'),
+            $id ? __('Edit Movie') : __('New Movie')
         );
-        $resultPage->getConfig()->getTitle()->prepend(__('Pages'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Movie'));
         $resultPage->getConfig()->getTitle()
-            ->prepend($model->getId() ? $model->getTitle() : __('New Page'));
+            ->prepend($model->getId() ? $model->getName() : __('New Movie'));
 
         return $resultPage;
     }

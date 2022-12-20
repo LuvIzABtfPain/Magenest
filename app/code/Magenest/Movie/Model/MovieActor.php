@@ -6,7 +6,7 @@ class Movie_Actor
 {
     protected function _construct()
     {
-        $this->_init('Magenest\Movie\Model\ResourceModel\Movie_Actor');
+        $this->_init('Magenest\Movie\Model\ResourceModel\MovieActor');
     }
 }
 

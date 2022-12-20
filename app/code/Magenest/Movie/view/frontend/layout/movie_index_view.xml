@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * hello_learning_view
+ *
+ * @copyright Copyright © 2020 MAGETOP. All rights reserved.
+ * @author    info@magetop.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Magenest_Movie::css/styleTable.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magenest\Movie\Block\MovieList" name="movie_index_view" template="Magenest_Movie::movies.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

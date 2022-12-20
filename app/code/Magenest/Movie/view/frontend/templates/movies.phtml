@@ -1,0 +1,27 @@
+<?php
+/**
+ * @var $block \Magenest\Movie\Block\MovieList
+ */
+$movies = $block->getMovie();
+?>
+
+<table>
+    <tr>
+        <th class="movie-name">Name</th>
+        <th>Description</th>
+        <th>Rating</th>
+        <th>Director Name</th>
+        <th>Actor Name</th>
+    </tr>
+    <?php
+    foreach ($movies as $movie){
+        echo '<tr>
+                    <td>'.$movie->getName().'</td>
+                    <td>'.$movie->getDescription().'</td>
+                    <td>'.$movie->getRating().'</td>
+                    <td>'.$movie->getDirector().'</td>
+                    <td>'.$block->getActorByMovie($movie->getMovieId()).'</td>
+              </tr>';
+    }
+    ?>
+</table>

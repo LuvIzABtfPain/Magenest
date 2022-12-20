@@ -11,6 +11,7 @@
         <column xsi:type="int" name="movie_id" identity="true" unsigned="true" nullable="false" comment="Movie Id"/>
         <column xsi:type="text" name="name" nullable="false" comment="Name"/>
         <column xsi:type="text" name="description" nullable="false" comment="Description"/>
+        <column xsi:type="int" name="rating" unsigned="true" comment="rating"/>
         <column xsi:type="int" name="director_id" unsigned="true" comment="Director ID"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="movie_id"/>

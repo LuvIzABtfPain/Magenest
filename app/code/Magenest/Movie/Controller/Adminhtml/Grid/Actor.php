@@ -1,7 +1,8 @@
 <?php
-namespace Magenest\Movie\Controller\Adminhtml\Magenest;
+namespace Magenest\Movie\Controller\Adminhtml\Grid;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
+
 class Actor extends \Magento\Backend\App\Action
 {
     /**
@@ -12,7 +13,10 @@ class Actor extends \Magento\Backend\App\Action
      * @param Context $context
      * @param PageFactory $resultPageFactory
      */
-    public function __construct(Context $context,PageFactory $resultPageFactory) {
+    public function __construct(
+        Context $context,
+        PageFactory $resultPageFactory
+    ) {
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
     }
@@ -25,12 +29,9 @@ class Actor extends \Magento\Backend\App\Action
     {
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Magenest_Movie::grid');
-        $resultPage->addBreadcrumb(__('Magenest'), __('Actor'));
+        $resultPage->setActiveMenu('Magenest_Movie::system');
+        $resultPage->addBreadcrumb(__('Grid'), __('Actor'));
         $resultPage->getConfig()->getTitle()->prepend(__('Actor'));
         return $resultPage;
     }
-    /**
-     * {@inheritdoc}
-     */
 }

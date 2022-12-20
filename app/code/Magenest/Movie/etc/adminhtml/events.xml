@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_customer_save_after">
+        <observer name="customer_change_first_name" instance="Magenest\Movie\Observer\ChangeFirstName" />
+    </event>
+    <event name="save_a_movie">
+        <observer name="save_movie" instance="Magenest\Movie\Observer\SetRatingZero" />
+    </event>
+    <event name="admin_system_config_changed_section_movie">
+        <observer name="custom_admin_system_config_changed_section_movie" instance="Magenest\Movie\Observer\ConfigObserver"/>
+    </event>
+</config>
