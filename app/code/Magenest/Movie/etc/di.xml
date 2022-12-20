@@ -39,4 +39,10 @@
     <type name="Magento\Checkout\Block\Cart\Item\Renderer">
         <plugin name="product_image_checkout_cart" type="Magenest\Movie\Plugin\CheckoutCart" sortOrder="1"/>
     </type>
+    <type name="Magento\Customer\Model\Metadata\Form\Image">
+        <plugin name="Validate_Image" type="Magenest\Movie\Plugin\Metadata\Form\Image" sortOrder="1"/>
+    </type>
+    <type name="Magento\Customer\CustomerData\Customer">
+        <plugin name="customerData" type="Magenest\Movie\Plugin\CustomerData\Customer" sortOrder="1"/>
+    </type>
 </config>
