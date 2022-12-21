@@ -1,0 +1,104 @@
+<button class="alert-btn">Open Modal</button>
+<button id="modal-btn">Open Magento Login Modal</button>
+<button class="alert-btn">Open Custom Login Modal</button>
+
+<div id="popup-modal" hidden>
+    <div id="in-modal" class="modal-inner-container">
+        <div id="box-sizing">
+            <div class="modal-content">
+                <form id="form-modal">
+                    <div id="inside-form" class="container">
+                        <label for="email">Email</label>
+                        <input type="text" name="email"/>
+                        <label for="password">Password</label>
+                        <input type="password" name="password"/>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                        <button type="submit" style="float:right;">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .alert-btn {
+        margin-right: 50px;
+    }
+    #modal-btn {
+        margin-right: 50px;
+    }
+    #in-modal{
+        align-content: center;
+    }
+    #form-modal {
+        padding: 15px;
+        background-color: #00ff80;
+    }
+    #box-sizing {
+        width:640px;
+        height: auto;
+        margin: 0 auto;
+        padding: 10px;
+        position: relative;
+    }
+    #inside-form {
+        margin: 10px;
+    }
+    #inside-form label{
+        padding 10px 0;
+    }
+    #inside-form input{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+<script type="text/javascript">
+    require([
+        'Magento_Ui/js/modal/alert',
+        'jquery'
+    ], function(alert, $){
+        $(".alert-btn").click(
+            function () {
+                alert({
+                    title: $.mage.__('Some title'),
+                    content: $.mage.__('Some content'),
+                    actions: {
+                        always: function () {
+                        }
+                    }
+                });
+            }
+        )
+
+    })
+</script>
+
+
+<script type="text/javascript">
+    require([
+        'Magento_Ui/js/modal/modal',
+        'jquery'
+    ], function(modal, $){
+        var options = {
+            type: 'popup',
+            title: 'Login Modal',
+            responsive: true,
+            innerScroll: true,
+            buttons: [{
+                text: $.mage.__('Continue'),
+                class: 'mymodal1',
+                click: function () {
+                    this.closeModal();
+                }
+            }]
+        };
+        $("#modal-btn").click(
+            function () {
+                $("#popup-modal").modal(options).modal("openModal");
+            }
+        )
+
+    })
+</script>
