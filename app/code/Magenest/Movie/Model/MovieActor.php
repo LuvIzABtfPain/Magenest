@@ -2,7 +2,9 @@
 
 namespace Magenest\Movie\Model;
 
-class Movie_Actor
+use Magento\Framework\Model\AbstractModel;
+
+class MovieActor extends AbstractModel
 {
     protected function _construct()
     {

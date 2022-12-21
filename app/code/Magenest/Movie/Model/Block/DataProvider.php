@@ -4,18 +4,18 @@ namespace Magenest\Movie\Model\Block;
 use Magenest\Movie\Model\ResourceModel\Movie\CollectionFactory;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Ui\DataProvider\Modifier\PoolInterface;
+use Magenest\Movie\Model\ResourceModel\MovieActor\CollectionFactory as MovieActorFactory;
 
 class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
 {
-    /**
-     * @var \Magento\Cms\Model\ResourceModel\Block\Collection
-     */
+
     protected $collection;
 
     /**
      * @var DataPersistorInterface
      */
     protected $dataPersistor;
+    protected $movieActorCollection;
 
     /**
      * @var array
@@ -39,12 +39,14 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
         $primaryFieldName,
         $requestFieldName,
         CollectionFactory $movieCollectionFactory,
+        MovieActorFactory $movieActorCollectionFactory,
         DataPersistorInterface $dataPersistor,
         array $meta = [],
         array $data = [],
         PoolInterface $pool = null
     ) {
         $this->collection = $movieCollectionFactory->create();
+        $this->movieActorCollection = $movieActorCollectionFactory->create();
         $this->dataPersistor = $dataPersistor;
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data, $pool);
     }
@@ -60,9 +62,17 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
             return $this->loadedData;
         }
         $items = $this->collection->getItems();
-        /** @var \Magento\Cms\Model\Block $movie */
         foreach ($items as $movie) {
-            $this->loadedData[$movie->getId()] = $movie->getData();
+            $actors = $this->movieActorCollection->addFieldtoSelect('actor_id')->addFieldtoFilter('movie_id', $movie->getId());
+            $actors_id = [];
+                foreach($actors as $actor){
+                    array_push($actors_id, $actor->getActor_id());
+            }
+
+            $this->loadedData[$movie->getId()] = [
+                ...$movie->getData(),
+                'actor_id' => $actors_id
+            ];
         }
 
         $data = $this->dataPersistor->get('magenest_movie');

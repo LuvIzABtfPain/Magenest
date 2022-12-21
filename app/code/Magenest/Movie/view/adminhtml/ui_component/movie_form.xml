@@ -94,9 +94,6 @@
                 </item>
             </argument>
             <settings>
-                <validation>
-                    <rule name="required-entry" xsi:type="boolean">true</rule>
-                </validation>
                 <dataType>int</dataType>
                 <label translate="true">Director Name</label>
                 <dataScope>director_id</dataScope>
@@ -117,9 +114,6 @@
                 </item>
             </argument>
             <settings>
-                <validation>
-                    <rule name="required-entry" xsi:type="boolean">true</rule>
-                </validation>
                 <dataType>int</dataType>
                 <label translate="true">Actor Name</label>
                 <dataScope>actor_id</dataScope>
@@ -132,6 +126,21 @@
                     </settings>
                 </multiselect>
             </formElements>
+        </field>
+        <field name="rating" sortOrder="60" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">rating</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-greater-than-zero" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>integer</dataType>
+                <label translate="true">Rating</label>
+                <dataScope>rating</dataScope>
+            </settings>
         </field>
     </fieldset>
 </form>
