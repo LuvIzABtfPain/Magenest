@@ -1,12 +1,32 @@
-<div class="block block-dashboard-info">
-    <div class="block-title"><strong><?= $block->escapeHtml(__('Account Avatar')) ?></strong></div>
-    <div class="block-content">
-        <div class="box box-information">
-            <?php $avatarFile = !empty($block->getCustomer()->getCustomAttribute('customer_avatar')) ? $block->getLayout()->createBlock('\Magenest\Movie\Block\Attributes\Avatar')->checkImageFile(base64_encode($block->getCustomer()->getCustomAttribute('customer_avatar')->getValue())) : false; ?>
-            <?php $avatar = ($avatarFile) ? $block->getUrl('viewfile/avatar/view/', ['image' => base64_encode($block->getCustomer()->getCustomAttribute('customer_avatar')->getValue())]) : $block->getViewFileUrl('Magnest_Movie::images/no-profile-photo.jpg');?>
-            <label class="label" for="customer_avatar">
-                <img src="<?php echo $avatar; ?>" width="150px" height="150px" alt="customer-image" title="<?php echo __('Upload new avatar'); ?>" class="profile-image"/>
-            </label>
-        </div>
-    </div>
-</div>
+<?php
+/**
+ * Lof
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Lof.com license that is
+ * available through the world-wide-web at this URL:
+ * https://landofcoder.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Lof
+ * @package     Lof_CustomerAvatar
+ * @copyright   Copyright (c) 2019 Lof (https://landofcoder.com/)
+ * @license     https://landofcoder.com/LICENSE.txt
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Form\Edit $block */
+$telephone = $block->getCustomer() &&
+$block->getCustomer()->getCustomAttribute('tele') &&
+$block->getCustomer()->getCustomAttribute('tele')->getValue() ?
+    $block->getCustomer()->getCustomAttribute('tele')->getValue() : null
+?>
+<p>
+    <?= $telephone; ?>
+</p>

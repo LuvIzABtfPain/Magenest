@@ -3,6 +3,6 @@
         <span><?= $block->escapeHtml(__('Phone number')) ?></span>
     </label>
     <div class="control">
-        <input type="text" name="tele" id="tele" value="" title="<?= $block->escapeHtmlAttr(__('Phone number')) ?>" class="input-text" data-validate="{required:true}">
+        <input type="text" name="tele" id="tele" value="" title="<?= $block->escapeHtmlAttr(__('Phone number')) ?>" class="input-text" data-validate="{required:true, phoneVN:true, maxlength:12}">
     </div>
 </div>

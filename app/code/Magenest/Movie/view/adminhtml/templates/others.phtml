@@ -1,0 +1,37 @@
+<div class="admin__page-section-item-title">
+    Number Records
+</div>
+<div class="admin__page-section-item-content">
+<table class="admin__table-secondary">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Customer</td>
+        <td><?= $block->countCustomer() ?></td>
+    </tr>
+    <tr>
+        <td>Product</td>
+        <td><?= $block->countProduct() ?></td>
+    </tr>
+    <tr>
+        <td>Invoice</td>
+        <td><?= $block->countInvoice() ?></td>
+    </tr>
+    <tr>
+        <td>Order</td>
+        <td><?= $block->countOrder() ?></td>
+    </tr>
+    <tr>
+        <td>
+            CreditMemos
+        </td>
+        <td><?= $block->countCredit() ?></td>
+    </tr>
+    </tbody>
+</table>
+</div>

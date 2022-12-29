@@ -2,8 +2,13 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
         <add id="Magenest_Movie::system" title="New Menu" module="Magenest_Movie" sortOrder="70" resource="Magenest_Movie::menu"/>
-        <add id="Magenest_Movie::movie" title="Movie" module="Magenest_Movie" sortOrder="70" action="grid/grid/movie" parent="Magenest_Movie::system" resource="Magento_Movie::movie"/>
-        <add id="Magenest_Movie::director" title="Director" module="Magenest_Movie" action="grid/grid/director" sortOrder="80" parent="Magenest_Movie::system" resource="Magento_Movie::director"/>
-        <add id="Magenest_Movie::actor" title="Actor" module="Magenest_Movie" action="grid/grid/actor" sortOrder="90" parent="Magenest_Movie::system" resource="Magento_Movie::actor"/>
+            <add id="Magenest_Movie::section" title="Section 1"  module="Magenest_Movie" parent="Magenest_Movie::system" sortOrder="50" resource="Magenest_Movie::section"/>
+                <add id="Magenest_Movie::movie" title="Movie" module="Magenest_Movie" sortOrder="70" action="grid/grid/movie" parent="Magenest_Movie::section" resource="Magento_Movie::movie"/>
+                <add id="Magenest_Movie::director" title="Director" module="Magenest_Movie" action="grid/grid/director" sortOrder="80" parent="Magenest_Movie::section" resource="Magento_Movie::director"/>
+                <add id="Magenest_Movie::actor" title="Actor" module="Magenest_Movie" action="grid/grid/actor" sortOrder="90" parent="Magenest_Movie::section" resource="Magento_Movie::actor"/>
+            <add id="Magenest_Movie::section2" title="Section 2"  module="Magenest_Movie" parent="Magenest_Movie::system" sortOrder="60" resource="Magenest_Movie::section"/>
+                <add id="Magenest_Movie::module" title="Module Count" module="Magenest_Movie" sortOrder="70" action="beadvanced/count/module" parent="Magenest_Movie::section2" resource="Magento_Movie::movie"/>
+            <add id="Magenest_Movie::section3" title="Section 3"  module="Magenest_Movie" parent="Magenest_Movie::system" sortOrder="70" resource="Magenest_Movie::section"/>
+                <add id="Magenest_Movie::others" title="Others Count" module="Magenest_Movie" sortOrder="70" action="beadvanced/count/others" parent="Magenest_Movie::section3" resource="Magento_Movie::movie"/>
     </menu>
 </config>

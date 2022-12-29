@@ -3,8 +3,8 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="form.additional.info">
-            <block class="Magento\Framework\View\Element\Template" name="custom_additional_field_register"
-                   template="Magenest_Movie::customer/form/imagefieldregister.phtml"/>
+            <block class="Magento\Framework\View\Element\Template" name="telephone_number"
+                   template="Magenest_Chapter9::customer/form/telefieldregister.phtml"/>
         </referenceContainer>
     </body>
 </page>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block name="count" template="Magenest_Movie::count.phtml">
+                <block class="Magenest\Movie\Block\Adminhtml\Module" name="beadvanced_count_module_1" template="Magenest_Movie::module.phtml" cacheable="false" as="module"/>
+                <block class="Magenest\Movie\Block\Adminhtml\Others" name="beadvanced_count_module_2" template="Magenest_Movie::others.phtml" cacheable="false" as="others"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

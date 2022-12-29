@@ -2,26 +2,33 @@
 
 namespace Magenest\Product\Plugin\Block\Adminhtml\Order;
 
-class ExportOrderItems
+use Magento\Backend\Block\Widget\Context;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+
+class ExportOrderItems extends \Magento\Backend\Block\Widget\Container
 {
-    public function __construct()
+    public function __construct(
+        \Magento\Framework\UrlInterface $urlBuilder,
+        Context $context, array $data = []
+    )
     {
+        $this->urlBuilder = $urlBuilder;
+        parent::__construct($context, $data);
     }
 
     public function beforeSetLayout(\Magento\Sales\Block\Adminhtml\Order\View $view)
     {
-        $message = 'Are you sure you want to do this?';
-        $url = $this->getUrl('route_id/path') . $view->getOrderId();
-
-
+        $url = $this->urlBuilder->getUrl('custombe/export/orderitems'
+            , ['order_id' => $view->getOrderId()]
+        );
         $view->addButton(
-            'order_myaction',
+            'order_export',
             [
                 'label' => __('Export'),
-                'onclick' => "confirmSetLocation('{$message}', '{$url}')"
+                'onclick' => 'setLocation(\'' . $url . '\')',
             ]
         );
 
-
     }
+
 }
