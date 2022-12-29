@@ -1,0 +1,12 @@
+<div class="block block-dashboard-info">
+    <div class="block-title"><strong><?= $block->escapeHtml(__('Account Avatar')) ?></strong></div>
+    <div class="block-content">
+        <div class="box box-information">
+            <?php $avatarFile = !empty($block->getCustomer()->getCustomAttribute('customer_avatar')) ? $block->getLayout()->createBlock('\Magenest\Movie\Block\Attributes\Avatar')->checkImageFile(base64_encode($block->getCustomer()->getCustomAttribute('customer_avatar')->getValue())) : false; ?>
+            <?php $avatar = ($avatarFile) ? $block->getUrl('viewfile/avatar/view/', ['image' => base64_encode($block->getCustomer()->getCustomAttribute('customer_avatar')->getValue())]) : $block->getViewFileUrl('Magnest_Movie::images/no-profile-photo.jpg');?>
+            <label class="label" for="customer_avatar">
+                <img src="<?php echo $avatar; ?>" width="150px" height="150px" alt="customer-image" title="<?php echo __('Upload new avatar'); ?>" class="profile-image"/>
+            </label>
+        </div>
+    </div>
+</div>

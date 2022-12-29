@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="product_columns">
+        <column name="course_start" sortOrder="110">
+            <settings>
+                <addField>true</addField>
+                <dataType>text</dataType>
+                <label translate="true">Course Start</label>
+                <filter>dateRange</filter>
+            </settings>
+        </column>
+    </columns>
+</listing>
