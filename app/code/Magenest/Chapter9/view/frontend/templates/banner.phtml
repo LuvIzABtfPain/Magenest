@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var $block \Magenest\Chapter9\Block\Banner
+ */
+$image = $block->getMediaUrl();
+if($image != null) {
+    echo '<img src="'.$image.'wysiwyg/banner.jpg"}}" alt="banner-bot" />';
+    echo '<br/>';
+    echo 'Bạn là người dùng B2B';
+} else {
+    echo 'Bạn không phải là người dùng B2B';
+}
+?>

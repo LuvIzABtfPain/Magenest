@@ -1,0 +1,27 @@
+<?php
+/**
+ * @var $block \Magenest\Blog\Block\BlogList
+ */
+$blogs = $block->getBlog();
+?>
+
+<table>
+    <tr>
+        <th class="blog-name">Name</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Author Name</th>
+        <th>Author email</th>
+    </tr>
+    <?php
+    foreach ($blogs as $blog) {
+        echo '<tr>
+                    <td>' . $blog->getId() . '</td>
+                    <td>' . $blog->getTitle() . '</td>
+                    <td>' . $blog->getDescription() . '</td>
+                    <td>' . $blog->getLastname() . ' ' . $blog->getFirstname() . '</td>
+                    <td>' . $blog->getEmail() . '</td>
+              </tr>';
+    }
+    ?>
+</table>

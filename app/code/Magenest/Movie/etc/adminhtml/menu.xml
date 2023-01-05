@@ -8,7 +8,7 @@
                 <add id="Magenest_Movie::actor" title="Actor" module="Magenest_Movie" action="grid/grid/actor" sortOrder="90" parent="Magenest_Movie::section" resource="Magento_Movie::actor"/>
             <add id="Magenest_Movie::section2" title="Section 2"  module="Magenest_Movie" parent="Magenest_Movie::system" sortOrder="60" resource="Magenest_Movie::section"/>
                 <add id="Magenest_Movie::module" title="Module Count" module="Magenest_Movie" sortOrder="70" action="beadvanced/count/module" parent="Magenest_Movie::section2" resource="Magento_Movie::movie"/>
-            <add id="Magenest_Movie::section3" title="Section 3"  module="Magenest_Movie" parent="Magenest_Movie::system" sortOrder="70" resource="Magenest_Movie::section"/>
-                <add id="Magenest_Movie::others" title="Others Count" module="Magenest_Movie" sortOrder="70" action="beadvanced/count/others" parent="Magenest_Movie::section3" resource="Magento_Movie::movie"/>
+            <add id="Magenest_Movie::section3" title="Module Blog"  module="Magenest_Blog" parent="Magenest_Movie::system" sortOrder="70" resource="Magenest_Movie::section"/>
+                <add id="Magenest_Blog::Blog" title="Blog" module="Magenest_Blog" sortOrder="70" action="blog/index/view" parent="Magenest_Movie::section3" resource="Magento_Movie::movie"/>
     </menu>
 </config>

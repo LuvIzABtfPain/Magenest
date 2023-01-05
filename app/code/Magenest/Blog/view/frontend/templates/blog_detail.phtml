@@ -1,0 +1,11 @@
+<?php
+/**
+ * @var $block \Magenest\Blog\Block\BlogDetail
+ */
+$blog = $block->getBlog();
+?>
+<h1><?= $blog->getTitle(); ?></h1>
+<h2><?= $blog->getDescription(); ?></h2>
+<h3><?= $blog->getCreateAt(); ?></h3>
+<p><?= $blog->getContent(); ?></p>
+

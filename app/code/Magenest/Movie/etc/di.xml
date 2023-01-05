@@ -12,6 +12,7 @@
                 <item name="actor_listing_data_source" xsi:type="string">Magenest\Movie\Model\ResourceModel\Actor\Grid\Collection</item>
                 <item name="director_listing_data_source" xsi:type="string">Magenest\Movie\Model\ResourceModel\Director\Grid\Collection</item>
                 <item name="movie_listing_data_source" xsi:type="string">Magenest\Movie\Model\ResourceModel\Movie\Grid\Collection</item>
+                <item name="blog_listing_data_source" xsi:type="string">Magenest\BLog\Model\ResourceModel\Blog\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
@@ -19,6 +20,12 @@
         <arguments>
             <argument name="mainTable" xsi:type="string">magenest_actor</argument>
             <argument name="resourceModel" xsi:type="string">Magenest\Movie\Model\ResourceModel\Actor</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magenest\BLog\Model\ResourceModel\Blog\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_blog</argument>
+            <argument name="resourceModel" xsi:type="string">Magenest\Blog\Model\ResourceModel\Blog</argument>
         </arguments>
     </virtualType>
     <virtualType name="Magenest\Movie\Model\ResourceModel\Director\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">

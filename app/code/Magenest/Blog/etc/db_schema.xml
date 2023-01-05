@@ -1,0 +1,42 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magenest_blog">
+        <column xsi:type="int" name="id" identity="true" unsigned="true" nullable="false" comment="Id"/>
+        <column xsi:type="int" name="author_id" unsigned="true" nullable="false" comment="Author Id"/>
+        <column xsi:type="varchar" name="title" nullable="false" comment="Title"/>
+        <column xsi:type="text" name="description" comment="description"/>
+        <column xsi:type="mediumtext" name="content" comment="content"/>
+        <column xsi:type="text" name="url_rewrite"  comment="url_rewrite"/>
+        <column xsi:type="text" name="status" comment="status"/>
+        <column xsi:type="timestamp" nullable="false" name="create_at" comment="create_at" default="CURRENT_TIMESTAMP" on_update="false"/>
+        <column xsi:type="timestamp" nullable="true" name="update_at" comment="update_at" default="CURRENT_TIMESTAMP" on_update="true"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="author_of_blog" table="magenest_blog" column="author_id" referenceTable="admin_user" referenceColumn="user_id" onDelete="CASCADE"/>
+        <index referenceId="MAGENEST_BLOG_TITLE_CONTENT" indexType="fulltext">
+            <column name="title"/>
+            <column name="content"/>
+        </index>
+    </table>
+    <table name="magenest_category">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" comment="Id"/>
+        <column xsi:type="text" name="name" nullable="false" comment="Name"/>
+        <index referenceId="MAGENEST_CATEGORY_NAME" indexType="fulltext">
+            <column name="name"/>
+        </index>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="magenest_blog_category">
+        <column xsi:type="smallint" name="id" identity="true" unsigned="true" nullable="false" comment="Id"/>
+        <column xsi:type="int" name="blog_id" unsigned="true" nullable="false" comment="Blog ID"/>
+        <column xsi:type="int" name="category_id" unsigned="true" nullable="false" comment="Category ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="blog_of_cat" table="magenest_blog_category" column="blog_id" referenceTable="magenest_blog" referenceColumn="id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="cat_of_blog" table="magenest_blog_category" column="category_id" referenceTable="magenest_category" referenceColumn="id" onDelete="CASCADE"/>
+    </table>
+</schema>
