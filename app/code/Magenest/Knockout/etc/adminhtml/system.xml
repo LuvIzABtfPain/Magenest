@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="background_color" translate="label" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Background Color</label>
+            <tab>magenest</tab>
+            <class>separator-top</class>
+            <resource>Magenest_Knockout::Knockout_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Background</label>
+                <field id="bgr_color" translate="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Choose color options</label>
+                    <frontend_model>Magenest\Knockout\Block\Adminhtml\ColorPicker</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

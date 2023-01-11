@@ -25,11 +25,13 @@ class VNRegion
             'label' => 'VN Region',
             'provider' => 'checkoutProvider',
             'sortOrder' => 0,
-            'validation' => ['required-entry' => true],
             'options' => $this->options,
             'filterBy' => null,
             'customEntry' => null,
-            'visible' => true
+            'visible' => true,
+            'validation' => [
+                'required-entry' => false,
+            ],
         ];
 
         $result['components']['checkout']['children']['steps']['children']['shipping-step']['children']['shippingAddress']['children']['shipping-address-fieldset']['children'][$customAttributeCode] = $customField;

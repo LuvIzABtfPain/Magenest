@@ -48,6 +48,7 @@ class AddRegionIdForCustomerAddress implements DataPatchInterface
                 'position' => 190,
                 'system' => false,
                 'backend' => '',
+                'required' => false,
             ]
         );
 

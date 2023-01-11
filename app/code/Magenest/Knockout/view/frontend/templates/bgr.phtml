@@ -1,0 +1,24 @@
+<?php
+$items = $block->getAllOptions();
+?>
+<label for="colors">Choose a color:</label>
+
+<select name="colors" id="colors">
+    <option value="#FFFFFF">Default</option>
+    <?php
+    foreach($items as $item){
+        echo "<option value='".$item["value"]."'>".$item["color"]."</option>";
+    }
+    ?>
+</select>
+<script type="text/javascript">
+    require(["jquery"], function ($) {
+        $(document).ready(function () {
+            var $el = $("#colors");
+            $el.on('change', function() {
+                var $hex = $el.val();
+                $("#html-body").css("backgroundColor", $hex);
+            });
+        });
+    });
+</script>

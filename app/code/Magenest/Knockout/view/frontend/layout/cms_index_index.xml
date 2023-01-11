@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magenest\Knockout\Block\ModalOverlay"
+                   template="Magenest_Knockout::modal_overlay.phtml"
+                   name="modalOverlay"
+                   as="modalOverlay"/>
+        </referenceContainer>
+        <referenceContainer name="content.top">
+            <block class="Magenest\Knockout\Block\BackgroundColor" template="Magenest_Knockout::bgr.phtml" name="BgrColor" before="Banner1"/>
+        </referenceContainer>
+    </body>
+</page>
